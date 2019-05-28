@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 
-import { AnimalsService } from '../services/animals.service';
+import { AnimalsDataService } from '../services/animals-data.service';
+import { Animal, Dependences } from '../types/animal';
 
 @Component({
   selector: 'app-animals-creator',
@@ -11,18 +12,21 @@ import { AnimalsService } from '../services/animals.service';
 export class AnimalsCreatorComponent implements OnInit {
   form = new FormGroup({
     name: new FormControl(''),
-    desciption: new FormControl(''),
+    description: new FormControl(''),
     class: new FormControl(''),
     type: new FormControl(''),
     feed: new FormControl(''),
-  })
+  });
 
-  constructor(private animalsService: AnimalsService) { }
+  dependences: Dependences;
+
+  constructor(private animalsDataService: AnimalsDataService) { }
 
   ngOnInit() {
+    this.animalsDataService.getAnimalDependences<Dependences>('animals/dependences').subscribe(dep => this.dependences = dep);
   }
 
   onSubmit() {
-    this.animalsService.save(this.form.value).subscribe(data => console.log(data));
+    this.animalsDataService.save<Animal>('animals', this.form.value as Animal).subscribe(data => console.log(data));
   }
 }

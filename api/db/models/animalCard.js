@@ -1,6 +1,6 @@
 const mongoose = require('../index');
 
-const LicenseSchema = new mongoose.Schema({
+const AnimalCardSchema = new mongoose.Schema({
   animal:  {
     type: String,
     required: true,
@@ -10,7 +10,7 @@ const LicenseSchema = new mongoose.Schema({
   expert: Number,
 });
 
-module.exports = { 
-    Licenses:mongoose.model('Licenses', LicenseSchema),
-    LicenseSchema,
+module.exports = {
+  AnimalCard: mongoose.model('AnimalCard', AnimalCardSchema),
+  AnimalCardSchema,
 };

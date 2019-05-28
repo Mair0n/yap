@@ -5,10 +5,10 @@ const AnimalTypeSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  desciption: String,
+  description: String,
 });
 
-module.exports = { 
+module.exports = {
     AnimalType:mongoose.model('AnimalType', AnimalTypeSchema),
     AnimalTypeSchema,
 };

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { AnimalsService } from '../services/animals.service';
-import { Observable } from 'rxjs';
+import { AnimalsDataService } from '../services/animals-data.service';
+
+import { Animal } from '../types/animal';
 
 @Component({
   selector: 'animals',
@@ -8,10 +9,16 @@ import { Observable } from 'rxjs';
   styleUrls: ['./animals.component.css']
 })
 export class AnimalsComponent implements OnInit {
-  private animals;
-  constructor(private animalsService: AnimalsService) { }
+  private animals: Animal[] = [];
+
+  constructor(private animalsDataService: AnimalsDataService) { }
 
   ngOnInit() {
-    this.animalsService.get().subscribe(data => this.animals = data);
+    this.animalsDataService.get<Animal>('animals').subscribe(animals => this.animals = animals);
+  }
+
+  delete(name: string) {
+    this.animalsDataService.delete<Animal>('animals', name)
+      .subscribe(result => this.animals = this.animals.filter(x => x.name !== name));
   }
 }

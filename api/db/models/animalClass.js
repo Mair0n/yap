@@ -4,11 +4,12 @@ const AnimalClassSchema = new mongoose.Schema({
   name:  {
     type: String,
     required: true,
+    unique: true,
   },
-  desciption: String,
+  description: String,
 });
 
-module.exports = { 
+module.exports = {
     AnimalClass:mongoose.model('AnimalClass', AnimalClassSchema),
     AnimalClassSchema,
 };

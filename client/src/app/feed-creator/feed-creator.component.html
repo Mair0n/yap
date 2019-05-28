@@ -1,0 +1,22 @@
+<div class="wrapper">
+  <form [formGroup]="form" (ngSubmit)="onSubmit()" id="createrForm">
+    <mat-form-field appearance="outline" [hideRequiredMarker]="true">
+      <mat-label>Name</mat-label>
+      <input required matInput formControlName="name">
+      <mat-error>Feed name is required</mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Kind</mat-label>
+      <input matInput formControlName="kind">
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Composition</mat-label>
+      <input matInput formControlName="composition">
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Number</mat-label>
+      <input matInput formControlName="number">
+    </mat-form-field>
+    <button mat-raised-button color="primary" type="submit">Submit</button>
+  </form>
+</div>

@@ -1,6 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 
-import { AnimalsService } from './animals.service';
+import { AnimalsService } from './animals-data.service';
 
 describe('AnimalsService', () => {
   beforeEach(() => TestBed.configureTestingModule({}));
