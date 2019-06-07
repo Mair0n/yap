@@ -14,12 +14,12 @@ export class AnimalCardComponent implements OnInit {
   constructor(private animalDataService: AnimalsDataService) { }
 
   ngOnInit() {
-    this.animalDataService.get<AnimalCard>('animal-card')
+    this.animalDataService.get<AnimalCard>('cards')
       .subscribe(animalCards => this.animalCards = animalCards);
   }
 
   delete(animal: string) {
-    this.animalDataService.delete<AnimalCard>('animal-card', animal)
+    this.animalDataService.delete<AnimalCard>('cards', animal)
       .subscribe(result => this.animalCards = this.animalCards.filter(x => x.animal !== animal));
   }
 }

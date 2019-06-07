@@ -14,12 +14,12 @@ export class FeedComponent implements OnInit {
   constructor(private animalDataService: AnimalsDataService) { }
 
   ngOnInit() {
-    this.animalDataService.get<Feed>('feed')
+    this.animalDataService.get<Feed>('feeds')
       .subscribe(feeds => this.feeds = feeds);
   }
 
   delete(name: string) {
-    this.animalDataService.delete<Feed>('feed', name)
+    this.animalDataService.delete<Feed>('feeds', name)
       .subscribe(result => this.feeds = this.feeds.filter(x => x.name !== name));
   }
 }

@@ -14,12 +14,12 @@ export class LicenseComponent implements OnInit {
   constructor(private animalDataService: AnimalsDataService) { }
 
   ngOnInit() {
-    this.animalDataService.get<License>('license')
+    this.animalDataService.get<License>('licenses')
       .subscribe(licencses => this.licencses = licencses);
   }
 
   delete(name: string) {
-    this.animalDataService.delete<License>('license', name)
+    this.animalDataService.delete<License>('licenses', name)
       .subscribe(result => this.licencses = this.licencses.filter(x => x.name !== name));
   }
 }

@@ -1,6 +1,6 @@
 export class Animal {
     name: string;
-    desciption: string;
+    description: string;
     class: string;
     type: string;
     feed: string[];

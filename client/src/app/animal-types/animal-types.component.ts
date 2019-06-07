@@ -14,12 +14,12 @@ export class AnimalTypesComponent implements OnInit {
   constructor(private animalDataService: AnimalsDataService) { }
 
   ngOnInit() {
-    this.animalDataService.get<AnimalType>('animal-type')
+    this.animalDataService.get<AnimalType>('types')
       .subscribe(AnimalTypees => this.animalTypes = AnimalTypees);
   }
 
   delete(name: string) {
-    this.animalDataService.delete<AnimalType>('animal-type', name)
+    this.animalDataService.delete<AnimalType>('types', name)
       .subscribe(result => this.animalTypes = this.animalTypes.filter(x => x.name !== name));
   }
 }

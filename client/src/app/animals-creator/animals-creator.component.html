@@ -1,5 +1,5 @@
 <div class="wrapper">
-  <form [formGroup]="form" (ngSubmit)="onSubmit()" id="createrForm">
+  <form *ngIf="dependences" [formGroup]="form" (ngSubmit)="onSubmit()" id="createrForm">
     <mat-form-field appearance="outline" [hideRequiredMarker]="true">
       <mat-label>Name</mat-label>
       <input required matInput formControlName="name">
@@ -8,6 +8,7 @@
     <mat-form-field appearance="outline">
       <mat-label>Description</mat-label>
       <input matInput formControlName="description">
+      <mat-error>Description name is required</mat-error>
     </mat-form-field>
     <mat-form-field appearance="outline">
       <mat-label>Class</mat-label>
@@ -16,6 +17,7 @@
           {{class.name}}
         </mat-option>
       </mat-select>
+      <mat-error>Class name is required</mat-error>
     </mat-form-field>
     <mat-form-field appearance="outline">
       <mat-label>Type</mat-label>
@@ -24,6 +26,7 @@
           {{type.name}}
         </mat-option>
       </mat-select>
+      <mat-error>Type name is required</mat-error>
     </mat-form-field>
     <mat-form-field appearance="outline">
       <mat-label>Feed</mat-label>
@@ -32,6 +35,7 @@
           {{feed.name}}
         </mat-option>
       </mat-select>
+      <mat-error>Feed name is required</mat-error>
     </mat-form-field>
     <button mat-raised-button color="primary" type="submit">Submit</button>
   </form>

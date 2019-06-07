@@ -1,0 +1,10 @@
+<div class="wrapper">
+  <form [formGroup]="form" (ngSubmit)="onSubmit()" id="createrForm">
+    <mat-form-field *ngFor="let control of arrayForm" appearance="outline" [hideRequiredMarker]="true">
+      <mat-label>{{control}}</mat-label>
+      <input required matInput formControlName={{control}}>
+      <mat-error>{{control}} is required</mat-error>
+    </mat-form-field>
+    <button mat-raised-button color="primary" type="submit">Submit</button>
+  </form>
+</div>

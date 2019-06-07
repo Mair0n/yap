@@ -1,7 +1,8 @@
 nav {
     display: flex;
     width: 100vw;
-    margin-bottom: 20px;
+    margin-top: 20px;
+    justify-content: center;
 }
 
 nav a {
@@ -24,12 +25,14 @@ mat-form-field {
 }
 
 .wrapper {
+    border-radius: 5px;
     width: 50vw;
     padding: 20px;
     background-color: beige;
     opacity: 0.8;
     display: flex;
     flex-direction: column;
+    margin: 40px auto;
 }
 
 .list-item {

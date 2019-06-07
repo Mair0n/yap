@@ -4,26 +4,29 @@ import { FormGroup, FormControl } from '@angular/forms';
 import { AnimalsDataService } from '../services/animals-data.service';
 import { Animal, Dependences } from '../types/animal';
 
+import { FormBuilderService } from '../services/form-builder.service';
+
+import { animals } from '../constants/form-controls';
+
 @Component({
   selector: 'app-animals-creator',
   templateUrl: './animals-creator.component.html',
   styleUrls: ['./animals-creator.component.css']
 })
 export class AnimalsCreatorComponent implements OnInit {
-  form = new FormGroup({
-    name: new FormControl(''),
-    description: new FormControl(''),
-    class: new FormControl(''),
-    type: new FormControl(''),
-    feed: new FormControl(''),
-  });
+  form: FormGroup;
 
   dependences: Dependences;
 
-  constructor(private animalsDataService: AnimalsDataService) { }
+  constructor(
+    private animalsDataService: AnimalsDataService,
+    private fb: FormBuilderService,
+  ) {
+    this.animalsDataService.getAnimalDependences<Dependences>('animals/dependences').subscribe(dep => this.dependences = dep);
+    this.form = this.fb.createForm(animals);
+  }
 
   ngOnInit() {
-    this.animalsDataService.getAnimalDependences<Dependences>('animals/dependences').subscribe(dep => this.dependences = dep);
   }
 
   onSubmit() {

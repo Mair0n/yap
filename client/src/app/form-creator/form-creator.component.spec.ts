@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { FeedCreatorComponent } from './feed-creator.component';
+import { FormCreatorComponent } from './form-creator';
 
-describe('FeedCreatorComponent', () => {
-  let component: FeedCreatorComponent;
-  let fixture: ComponentFixture<FeedCreatorComponent>;
+describe('AnimalTypeCreatorComponent', () => {
+  let component: FormCreatorComponent;
+  let fixture: ComponentFixture<FormCreatorComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ FeedCreatorComponent ]
+      declarations: [ FormCreatorComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(FeedCreatorComponent);
+    fixture = TestBed.createComponent(FormCreatorComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -8,10 +8,10 @@ const license = require('./license');
 const animalCard = require('./animal-card');
 
 router.use('/animals', animals);
-router.use('/animal-class', animalsClass);
-router.use('/animal-type', animalsType);
-router.use('/feed', feed);
-router.use('/license', license);
-router.use('/animal-card', animalCard);
+router.use('/classes', animalsClass);
+router.use('/types', animalsType);
+router.use('/feeds', feed);
+router.use('/licenses', license);
+router.use('/cards', animalCard);
 
 module.exports = router;
