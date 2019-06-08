@@ -11,7 +11,7 @@ router.get('/', (req, res) => {
     .catch(err => res.json(err));
 })
 
-router.get('/:name', (req, res) => {
+router.get('/find/:name', (req, res) => {
   Animal.findOne({ name: req.params.name })
     .then(result => res.json(result))
     .catch(err => res.json(err));

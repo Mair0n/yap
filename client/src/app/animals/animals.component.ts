@@ -23,7 +23,7 @@ export class AnimalsComponent implements OnInit {
   }
 
   search(name: string) {
-    this.animalsDataService.search<Animal>('animals', name)
+    this.animalsDataService.search<Animal>('animals/find', name)
     .subscribe(result => this.animals = this.animals.filter(x => x.name === result.name));
   }
 }
