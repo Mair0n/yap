@@ -35,4 +35,8 @@ export class AnimalsDataService implements DataService {
   delete<T>(path: string, name: string): Observable<T> {
     return this.http.delete<T>(`${SERVER_URI}/${path}/${name}`, this.httpOptions);
   }
+
+  search<T>(path: string, name: string): Observable<T> {
+    return this.http.get<T>(`${SERVER_URI}/${path}/${name}`, this.httpOptions);
+  }
 }

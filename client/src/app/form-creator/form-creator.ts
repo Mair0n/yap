@@ -1,6 +1,7 @@
 import { Component, OnInit, Pipe, PipeTransform } from '@angular/core';
 import { FormGroup, FormControl, AbstractControl } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Location } from '@angular/common';
 
 import { AnimalsDataService } from '../services/animals-data.service';
 
@@ -21,6 +22,7 @@ export class FormCreatorComponent implements OnInit {
 
   constructor(
     private router: Router,
+    private location: Location,
     private animalsDataService: AnimalsDataService,
     private fb: FormBuilderService,
   ) { 
@@ -36,6 +38,9 @@ export class FormCreatorComponent implements OnInit {
   }
 
   onSubmit() {
-    this.animalsDataService.save(this.path, this.form.value).subscribe(res => console.log(res));
+    this.animalsDataService.save(this.path, this.form.value).subscribe(res => {
+      console.log(res)
+      this.location.back();
+    });
   }
 }

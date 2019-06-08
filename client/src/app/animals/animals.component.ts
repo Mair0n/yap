@@ -21,4 +21,9 @@ export class AnimalsComponent implements OnInit {
     this.animalsDataService.delete<Animal>('animals', name)
       .subscribe(result => this.animals = this.animals.filter(x => x.name !== name));
   }
+
+  search(name: string) {
+    this.animalsDataService.search<Animal>('animals', name)
+    .subscribe(result => this.animals = this.animals.filter(x => x.name === result.name));
+  }
 }

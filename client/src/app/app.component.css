@@ -24,6 +24,10 @@ mat-form-field {
     width: 100%;
 }
 
+mat-card {
+    margin-bottom: 10px;
+}
+
 .wrapper {
     border-radius: 5px;
     width: 50vw;

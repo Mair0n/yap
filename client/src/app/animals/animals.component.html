@@ -1,4 +1,9 @@
 <div class="wrapper">
+  <mat-form-field appearance="outline">
+    <mat-label>Search</mat-label>
+    <input matInput #searchInput (keydown.enter)="search(searchInput.value)">
+    <mat-icon matSuffix>search</mat-icon>
+  </mat-form-field>
   <mat-card class="list-item" *ngFor="let animal of animals">
     <mat-card-header>
       <mat-card-title>{{animal.name}}</mat-card-title>
@@ -18,7 +23,7 @@
       </p>
     </mat-card-content>
     <mat-card-actions>
-      <button mat-button color="warn" (click)="delete(animal.name)">Delete</button>
+      <button mat-raised-button color="warn" (click)="delete(animal.name)">Delete</button>
     </mat-card-actions>
   </mat-card>
   <a mat-raised-button routerLink="/animals/new" color="primary">Create</a>

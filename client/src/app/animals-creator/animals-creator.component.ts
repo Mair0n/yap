@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
+import { Location } from '@angular/common';
 
 import { AnimalsDataService } from '../services/animals-data.service';
 import { Animal, Dependences } from '../types/animal';
@@ -21,6 +22,7 @@ export class AnimalsCreatorComponent implements OnInit {
   constructor(
     private animalsDataService: AnimalsDataService,
     private fb: FormBuilderService,
+    private location: Location,
   ) {
     this.animalsDataService.getAnimalDependences<Dependences>('animals/dependences').subscribe(dep => this.dependences = dep);
     this.form = this.fb.createForm(animals);
@@ -30,6 +32,9 @@ export class AnimalsCreatorComponent implements OnInit {
   }
 
   onSubmit() {
-    this.animalsDataService.save<Animal>('animals', this.form.value as Animal).subscribe(data => console.log(data));
+    this.animalsDataService.save<Animal>('animals', this.form.value as Animal).subscribe(data => {
+      this.location.back();
+      console.log(data)
+    });
   }
 }

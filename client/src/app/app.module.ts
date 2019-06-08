@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
-import { MatInputModule, MatButtonModule, MatCardModule, MatSelectModule } from '@angular/material';
+import { MatInputModule, MatButtonModule, MatCardModule, MatSelectModule, MatIconModule } from '@angular/material';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
@@ -39,7 +39,8 @@ import { AnimalCardComponent } from './animal-card/animal-card.component';
     MatInputModule,
     MatButtonModule,
     MatCardModule,
-    MatSelectModule
+    MatSelectModule,
+    MatIconModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
